@@ -28,11 +28,9 @@ Pick up food from restaurants and deliver to customers
 Update order status in real time (e.g., on the way, delivered)
 
 **💡 Project Overview**
+
 This project demonstrates the development of a full-stack database-driven web application, integrating:
 Database Modeling & SQL Logic for structured data handling
-
 Backend Integration for order management and real-time updates
-
 Frontend User Interface for seamless user experience
-
 The system emphasizes functionality, data integrity, and user interactivity, providing a practical prototype of a modern online food delivery ecosystem.
