@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | Smart Bites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9d423, #ff4e50);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .dashboard-container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 30px;
+            width: 420px;
+            animation: slideUp 0.8s ease-in-out;
+            position: relative;
+        }
+
+        .dashboard-container h1 {
+            font-size: 38px;
+            background: linear-gradient(to right, #ff4e50, #f9d423);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .page-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .page-buttons a {
+            text-decoration: none;
+            background: #ff4e50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .page-buttons a:hover {
+            background: #f9d423;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        .corner-img {
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            width: 130px;
+            opacity: 0.9;
+            animation: floatLogo 3s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>SMART BITES</h1>
+        <p class="tagline">Delicious food, delivered smartly 🍔</p>
+
+        <div class="page-buttons">
+            <a href="{{ url_for('place_order') }}">🛒 Place Order</a>
+            <a href="{{ url_for('review_restaurant') }}">⭐ Review</a>
+            <a href="{{ url_for('analytics') }}">📊 Analytics</a>
+        </div>
+
+        <img src="{{ url_for('static', filename='food_corner.png') }}" class="corner-img" alt="Food Icon">
+    </div>
+</body>
+</html>

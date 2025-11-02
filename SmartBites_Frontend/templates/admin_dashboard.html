@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard | Smart Bites</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Control Panel</h2>
+    <div class="page-buttons">
+      <a href="{{ url_for('delete_partner') }}">❌ Delete Delivery Partner</a>
+      <a href="{{ url_for('view_orderitems') }}">📦 View Order Items</a>
+      <a href="{{ url_for('add_menu') }}">➕ Add New Menu Item</a>
+      <a href="{{ url_for('logout') }}">🚪 Logout</a>
+    </div>
+  </div>
+</body>
+</html>

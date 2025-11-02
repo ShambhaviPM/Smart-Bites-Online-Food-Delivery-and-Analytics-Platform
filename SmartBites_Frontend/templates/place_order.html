@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Place Order | Smart Bites</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Place a New Order</h2>
+    <form method="POST">
+      <label>Select Restaurant:</label><br>
+      <select name="restaurant" required>
+        {% for rest in restaurants %}
+          <option value="{{ rest[0] }}">{{ rest[1] }}</option>
+        {% endfor %}
+      </select><br><br>
+
+      <label>Select Menu Item:</label><br>
+      <select name="item" required>
+        {% for item in items %}
+          <option value="{{ item[0] }}">{{ item[1] }} - ₹{{ item[2] }}</option>
+        {% endfor %}
+      </select><br><br>
+
+      <label>Quantity:</label><br>
+      <input type="number" name="quantity" min="1" value="1" required><br><br>
+
+      <button type="submit">Place Order</button>
+    </form>
+    <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+  </div>
+</body>
+</html>

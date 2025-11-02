@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Order Items | Smart Bites</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      max-height: 300px;
+      overflow-y: auto;
+      display: block;
+    }
+    th, td { padding: 10px; border-bottom: 1px solid #ccc; text-align: center; }
+    th { background-color: #ff4e50; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>All Order Items</h2>
+    <table>
+      <tr>
+        <th>Order Item ID</th>
+        <th>Order ID</th>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+      {% for oi in orderitems %}
+      <tr>
+        <td>{{ oi[0] }}</td>
+        <td>{{ oi[1] }}</td>
+        <td>{{ oi[2] }}</td>
+        <td>{{ oi[3] }}</td>
+        <td>{{ oi[4] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="{{ url_for('admin_dashboard') }}"><button>Back</button></a>
+  </div>
+</body>
+</html>

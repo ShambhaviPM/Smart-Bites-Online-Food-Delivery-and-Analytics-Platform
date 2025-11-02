@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Menu Item | Smart Bites</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Add New Menu Item</h2>
+    <form method="POST">
+      <label>Restaurant:</label><br>
+      <select name="restaurant_id" required>
+        {% for rest in restaurants %}
+          <option value="{{ rest[0] }}">{{ rest[1] }}</option>
+        {% endfor %}
+      </select><br><br>
+      <input type="text" name="item_name" placeholder="Item Name" required><br>
+      <input type="text" name="cuisine" placeholder="Cuisine Type" required><br>
+      <input type="number" name="price" placeholder="Price" step="0.01" required><br>
+      <button type="submit">Add Item</button>
+    </form>
+    <p><a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a></p>
+  </div>
+</body>
+</html>

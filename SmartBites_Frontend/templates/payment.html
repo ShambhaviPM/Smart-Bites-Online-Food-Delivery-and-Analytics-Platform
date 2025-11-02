@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment | Smart Bites</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .success {
+      background: #eaffea;
+      border: 2px solid #28a745;
+      border-radius: 10px;
+      padding: 20px;
+      animation: fadeIn 0.8s ease-in;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Payment for Order #{{ order_id }}</h2>
+    {% if paid %}
+      <div class="success">
+        <h3>Payment Successful ✅</h3>
+        {% if partner_id %}
+          <p>Delivery Partner Assigned: {{ partner_id }}</p>
+        {% else %}
+          <p>Delivery partner assignment pending.</p>
+        {% endif %}
+        <p>Order placed successfully! 🚴‍♂️</p>
+        <a href="{{ url_for('dashboard') }}"><button>Back to Dashboard</button></a>
+      </div>
+    {% else %}
+      <form method="POST">
+        <label>Select Payment Method:</label><br>
+        <select name="method" required>
+          <option value="Credit Card">Credit Card</option>
+          <option value="Debit Card">Debit Card</option>
+          <option value="UPI">UPI</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
+        </select><br><br>
+        <button type="submit">Pay Now</button>
+      </form>
+    {% endif %}
+  </div>
+</body>
+</html>
